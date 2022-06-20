@@ -1,4 +1,5 @@
 site_name: PyGUI
+repo_url: https://github.com/hostedposted/py-gui
 
 theme:
   name: material

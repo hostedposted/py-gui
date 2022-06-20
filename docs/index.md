@@ -1,6 +1,10 @@
 # Home
 
-PyGUI is an easy-to-use GUI library for Python. In less than 10 lines you can easily make a GUI:
+PyGUI is an easy-to-use GUI library for Python.
+
+Install it using `pip install py-gui-tool`.
+
+In less than 10 lines you can easily make a GUI:
 
 ```py linenums="1"
 import pygui
