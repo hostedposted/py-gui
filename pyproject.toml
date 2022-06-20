@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pygui"
+version = "1.0.0"
+description = "PyGui is an easy to use gui."
+authors = ["hostedposted <hostedpostedsite@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+glfw = "^2.5.3"
+PyOpenGL = "^3.1.6"
+imgui = {extras = ["glfw"], version = "^1.4.1"}
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.14.2"
+black = {version = "^22.3.0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
