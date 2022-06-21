@@ -207,7 +207,7 @@ class Elements:
 
         return button_handler
 
-    def button_event(self, key: str, time_limit: int = 10):
+    def button_event(self, key: str, time_limit: int = 10, delay: int = 0):
         """
         After a button is clicked call the passed function every `time_limit` seconds.
 
@@ -217,6 +217,8 @@ class Elements:
             The key of the button.
         time_limit : int, optional
             How long this should be called after the button's click, by default 10
+        delay : int, optional
+            How long this should be called after the button's click, by default 0
 
         Returns
         -------
@@ -225,7 +227,7 @@ class Elements:
         """
 
         def handler(func):
-            if imgui.get_time() - self.state.get(key, -math.inf) < time_limit:
+            if delay <= imgui.get_time() - self.state.get(key, -math.inf) <= time_limit + delay:
                 func()
 
         return handler
