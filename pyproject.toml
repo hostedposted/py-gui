@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-gui-tool"
-version = "1.3.0"
+version = "1.4.0"
 description = "PyGui is an easy to use gui."
 authors = ["hostedposted <hostedpostedsite@gmail.com>"]
 license = "MIT"

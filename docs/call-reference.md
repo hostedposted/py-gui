@@ -178,7 +178,7 @@ Returns a decorator. The function passed into the decorator will get called when
 
     When you click the button ``Hello World!`` will be printed!
 
-### Elements.button_event(key, time_limit)
+### Elements.button_event(key, time_limit, delay)
 
 [:octicons-tag-24: 1.1.0](https://github.com/hostedposted/py-gui/tree/1.1.0) - Add an element to the frame for `time_limit` seconds after a button is clicked.
 
@@ -186,27 +186,40 @@ Returns a decorator. The function passed into the decorator will get called when
 | :--------- | ---------------------------------------------------------------------------- | :---------------- | :--------------- | :--------------- | :------------------------------------------------------------------------------ |
 | key        | [:octicons-tag-24: 1.1.0](https://github.com/hostedposted/py-gui/tree/1.1.0) | string            | :material-check: | :material-close: | The button's key.                                                               |
 | time_limit | [:octicons-tag-24: 1.1.0](https://github.com/hostedposted/py-gui/tree/1.1.0) | seconds (integer) | :material-check: | 10               | The amount of time the elements should be rendered after the button is pressed. |
+| delay      | [:octicons-tag-24: 1.4.0](https://github.com/hostedposted/py-gui/tree/1.4.0) | seconds (integer) | :material-check: | 0                | Make this function only get called after ``delay`` number of seconds.           |
 
-Returns a decorator. The function passed into the decorator will get called constantly for `time_limit` seconds.
+Returns a decorator. The function passed into the decorator will get called constantly for `time_limit` seconds, after `delay` seconds.
 
 ??? example
 
-    Let's redo the button example with the `Hello World` text being rendered for 10 seconds after the button is clicked.
+    Let's make a button that will terminate the program after 3 seconds.
 
-    ```py linenums="1" hl_lines="11 12 13"
+    ```py linenums="1" hl_lines="11 12 13 15 16 17 19 20 21 23 24 25"
     import pygui
 
     window = pygui.Window("Hello World")
 
     @window.frame("Hello World", width=700, height=450)
     def hello_world(elements: pygui.Elements):
-        @elements.button("Hello World!", key="hello")
-        def hello_world_button():
+        @elements.button("Terminate the program", key="terminate")
+        def terminate():
             pass
 
-        @elements.button_event("hello", time_limit=10)
-        def hello_world_button_event():
-            elements.text("Hello World!")
+        @elements.button_event("terminate", time_limit=1, delay=0)
+        def terminate_event():
+            elements.text("The program will terminate in 3 seconds!")
+
+        @elements.button_event("terminate", time_limit=1, delay=1)
+        def terminate_event_two():
+            elements.text("The program will terminate in 2 seconds!")
+
+        @elements.button_event("terminate", time_limit=1, delay=2)
+        def terminate_event_three():
+            elements.text("The program will terminate in 1 second!")
+
+        @elements.button_event("terminate", time_limit=1, delay=3)
+        def terminate_event_exit():
+            exit(0)
 
     window.start()
     ```
