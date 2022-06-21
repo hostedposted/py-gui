@@ -223,7 +223,7 @@ Add a checkbox to the frame.
 | default_value | boolean        | :material-check: | :material-close: | If the checkbox should be checked by default.                        |
 | key           | string or None | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
 
-Returns wether or not the checkbox is checked.
+Returns whether or not the checkbox is checked.
 
 ??? example
 
@@ -340,7 +340,7 @@ Add an input to the frame.
 
 This element stores the values of some objects.
 
-- You can use ``state`` for getting the value of object's before there definition.
+- You can use the `state` for getting the value of objects before their definition.
 
 ```py linenums="1" hl_lines="7"
 import pygui
@@ -355,7 +355,7 @@ def hello_world(elements: pygui.Elements):
 window.start()
 ```
 
-- You can use ``state`` for setting an object's state.
+- You can use the `state` for setting an object's state.
 
 ```py linenums="1" hl_lines="8 9 10"
 import pygui
@@ -372,4 +372,4 @@ def hello_world(elements: pygui.Elements):
 window.start()
 ```
 
-1. As of now the value will only be set in state when it is changed.
+1. As of now, the value will only be set in the state when it is changed.
