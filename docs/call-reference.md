@@ -4,14 +4,14 @@ On this page, you will find a list of all the functions and methods that are ava
 
 ## Window(title, width, height, font)
 
-The window object.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - The window object.
 
-| Parameter | Type               | Required         | Default Value    | Description                            |
-| :-------- | :----------------- | :--------------- | :--------------- | :------------------------------------- |
-| title     | string             | :material-check: | :material-close: | This will be the window title.         |
-| width     | integer            | :material-close: | 800              | This will be the width of the window.  |
-| height    | integer            | :material-close: | 600              | This will be the height of the window. |
-| font      | file path (string) | :material-close: | Roboto           | The font the window should use.        |
+| Parameter | Version                                                                      | Type               | Required         | Default Value    | Description                            |
+| :-------- | ---------------------------------------------------------------------------- | :----------------- | :--------------- | :--------------- | :------------------------------------- |
+| title     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string             | :material-check: | :material-close: | This will be the window title.         |
+| width     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer            | :material-close: | 800              | This will be the width of the window.  |
+| height    | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer            | :material-close: | 600              | This will be the height of the window. |
+| font      | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | file path (string) | :material-close: | Roboto           | The font the window should use.        |
 
 
 ??? example
@@ -24,7 +24,7 @@ The window object.
 
 ### Window.start()
 
-Start the window. This will make the window visible and wait for the user to close it. This will return when the user closes the window.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Start the window. This will make the window visible and wait for the user to close it. This will return when the user closes the window.
 
 ??? example
 
@@ -39,13 +39,13 @@ Start the window. This will make the window visible and wait for the user to clo
 
 ### Window.frame(title, width, height)
 
-Add a frame to the window.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add a frame to the window.
 
-| Parameter | Type    | Required         | Default Value    | Description                      |
-| :-------- | :------ | :--------------- | :--------------- | :------------------------------- |
-| title     | string  | :material-check: | :material-close: | This will be the frame's title.  |
-| width     | integer | :material-close: | Minimum Possible | This will be the frame's width.  |
-| height    | integer | :material-close: | Minimum Possible | This will be the frame's height. |
+| Parameter | Version                                                                      | Type    | Required         | Default Value    | Description                      |
+| :-------- | ---------------------------------------------------------------------------- | :------ | :--------------- | :--------------- | :------------------------------- |
+| title     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string  | :material-check: | :material-close: | This will be the frame's title.  |
+| width     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer | :material-close: | Minimum Possible | This will be the frame's width.  |
+| height    | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer | :material-close: | Minimum Possible | This will be the frame's height. |
 
 ??? example
 
@@ -68,13 +68,13 @@ Add a frame to the window.
 
 ### Window.menu(category, title, keys)
 
-Add a menu button to the top of the window.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add a menu button to the top of the window.
 
-| Parameter | Type   | Required         | Default Value    | Description                                                                                                                 |
-| :-------- | :----- | :--------------- | :--------------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| category  | string | :material-check: | :material-close: | The button category to put this button under. If the category does not exist it will be added to the top bar of the screen. |
-| title     | string | :material-check: | :material-close: | The button to be added to the category.                                                                                     |
-| keys      | string | :material-close: | :material-close: | The keys that will be used to activate the button. Look below for usable keys.                                              |
+| Parameter | Version                                                                      | Type   | Required         | Default Value    | Description                                                                                                                 |
+| :-------- | ---------------------------------------------------------------------------- | :----- | :--------------- | :--------------- | :-------------------------------------------------------------------------------------------------------------------------- |
+| category  | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string | :material-check: | :material-close: | The button category to put this button under. If the category does not exist it will be added to the top bar of the screen. |
+| title     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string | :material-check: | :material-close: | The button to be added to the category.                                                                                     |
+| keys      | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string | :material-close: | :material-close: | The keys that will be used to activate the button. Look below for usable keys.                                              |
 
 Usable key names are:
 
@@ -101,7 +101,7 @@ Usable key names are:
 
 ## Elements(state)
 
-The elements object.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - The elements object.
 
 !!! warning
 
@@ -109,14 +109,14 @@ The elements object.
 
 ### Elements.text(text, text_color, center, wrap_text)
 
-Add text to the frame.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add text to the frame.
 
-| Parameter  | Type                                                             | Required         | Default Value      | Description                                |
-| :--------- | :--------------------------------------------------------------- | :--------------- | :----------------- | :----------------------------------------- |
-| text       | string                                                           | :material-check: | :material-close:   | This will be the text to be added.         |
-| text_color | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-close: | (255, 255, 255, 1) | The color of the text.                     |
-| center     | boolean                                                          | :material-close: | False              | Wether or not the text should be centered. |
-| wrap_text  | boolean                                                          | :material-close: | True               | Wether or not the text should be wrapped.  |
+| Parameter  | Version                                                                      | Type                                                             | Required         | Default Value      | Description                                |
+| :--------- | ---------------------------------------------------------------------------- | :--------------------------------------------------------------- | :--------------- | :----------------- | :----------------------------------------- |
+| text       | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string                                                           | :material-check: | :material-close:   | This will be the text to be added.         |
+| text_color | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-close: | (255, 255, 255, 1) | The color of the text.                     |
+| center     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | False              | Wether or not the text should be centered. |
+| wrap_text  | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | True               | Wether or not the text should be wrapped.  |
 
 !!! warning
 
@@ -142,13 +142,13 @@ Add text to the frame.
 
 ### Elements.button(text, text_color, wrap_text)
 
-Add a button to the frame.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add a button to the frame.
 
-| Parameter  | Type                                                             | Required         | Default Value      | Description                              |
-| :--------- | :--------------------------------------------------------------- | :--------------- | :----------------- | :--------------------------------------- |
-| text       | string                                                           | :material-check: | :material-close:   | This will be the text on the button.     |
-| text_color | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-close: | (255, 255, 255, 1) | The color of the text.                   |
-| wrap_text  | boolean                                                          | :material-close: | True               | Wether or not the text should be wrapped |
+| Parameter  | Version                                                                      | Type                                                             | Required         | Default Value      | Description                              |
+| :--------- | ---------------------------------------------------------------------------- | :--------------------------------------------------------------- | :--------------- | :----------------- | :--------------------------------------- |
+| text       | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string                                                           | :material-check: | :material-close:   | This will be the text on the button.     |
+| text_color | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-close: | (255, 255, 255, 1) | The color of the text.                   |
+| wrap_text  | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | True               | Wether or not the text should be wrapped |
 
 Returns a decorator. The function passed into the decorator will get called when the button is clicked.
 
@@ -175,12 +175,12 @@ Returns a decorator. The function passed into the decorator will get called when
 
 ### Elements.button_event(key, time_limit)
 
-Add an element to the frame for `time_limit` seconds after a button is clicked.
+[:octicons-tag-24: 1.1.0](https://github.com/hostedposted/py-gui/tree/1.1.0) - Add an element to the frame for `time_limit` seconds after a button is clicked.
 
-| Parameter  | Type              | Required         | Default Value    | Description                                                                     |
-| :--------- | :---------------- | :--------------- | :--------------- | :------------------------------------------------------------------------------ |
-| key        | string            | :material-check: | :material-close: | The button's key.                                                               |
-| time_limit | seconds (integer) | :material-check: | 10               | The amount of time the elements should be rendered after the button is pressed. |
+| Parameter  | Version                                                                      | Type              | Required         | Default Value    | Description                                                                     |
+| :--------- | ---------------------------------------------------------------------------- | :---------------- | :--------------- | :--------------- | :------------------------------------------------------------------------------ |
+| key        | [:octicons-tag-24: 1.1.0](https://github.com/hostedposted/py-gui/tree/1.1.0) | string            | :material-check: | :material-close: | The button's key.                                                               |
+| time_limit | [:octicons-tag-24: 1.1.0](https://github.com/hostedposted/py-gui/tree/1.1.0) | seconds (integer) | :material-check: | 10               | The amount of time the elements should be rendered after the button is pressed. |
 
 Returns a decorator. The function passed into the decorator will get called constantly for `time_limit` seconds.
 
@@ -215,13 +215,13 @@ Returns a decorator. The function passed into the decorator will get called cons
 
 ### Elements.checkbox(label, default_value, key)
 
-Add a checkbox to the frame.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add a checkbox to the frame.
 
-| Parameter     | Type           | Required         | Default Value    | Description                                                          |
-| :------------ | :------------- | :--------------- | :--------------- | :------------------------------------------------------------------- |
-| label         | string         | :material-check: | :material-close: | This text will appear after the checkbox.                            |
-| default_value | boolean        | :material-check: | :material-close: | If the checkbox should be checked by default.                        |
-| key           | string or None | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
+| Parameter     | Version                                                                      | Type           | Required         | Default Value    | Description                                                          |
+| :------------ | ---------------------------------------------------------------------------- | :------------- | :--------------- | :--------------- | :------------------------------------------------------------------- |
+| label         | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string         | :material-check: | :material-close: | This text will appear after the checkbox.                            |
+| default_value | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean        | :material-check: | :material-close: | If the checkbox should be checked by default.                        |
+| key           | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string or None | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
 
 Returns whether or not the checkbox is checked.
 
@@ -245,14 +245,14 @@ Returns whether or not the checkbox is checked.
 
 ### Elements.color_picker(label, default_value, alpha, key)
 
-Add a color picker to the frame.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add a color picker to the frame.
 
-| Parameter     | Type                                                             | Required         | Default Value    | Description                                                          |
-| :------------ | :--------------------------------------------------------------- | :--------------- | :--------------- | :------------------------------------------------------------------- |
-| label         | string                                                           | :material-check: | :material-close: | This text will appear after the color picker.                        |
-| default_value | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-check: | :material-close: | The default color of the color picker.                               |
-| alpha         | boolean                                                          | :material-close: | False            | If a color is allowed to have an alpha value.                        |
-| key           | string or None                                                   | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
+| Parameter     | Version                                                                      | Type                                                             | Required         | Default Value    | Description                                                          |
+| :------------ | ---------------------------------------------------------------------------- | :--------------------------------------------------------------- | :--------------- | :--------------- | :------------------------------------------------------------------- |
+| label         | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string                                                           | :material-check: | :material-close: | This text will appear after the color picker.                        |
+| default_value | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-check: | :material-close: | The default color of the color picker.                               |
+| alpha         | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | False            | If a color is allowed to have an alpha value.                        |
+| key           | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string or None                                                   | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
 
 Returns the color selected as an RGB or RGBA tuple.
 
@@ -276,16 +276,16 @@ Returns the color selected as an RGB or RGBA tuple.
 
 ### Elements.input_int(label, default_value, minimum, maximum, key, wrap_text)
 
-Add an input to the frame that only accepts integers.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add an input to the frame that only accepts integers.
 
-| Parameter     | Type           | Required         | Default Value     | Description                                                          |
-| :------------ | :------------- | :--------------- | :---------------- | :------------------------------------------------------------------- |
-| label         | string         | :material-check: | :material-close:  | This text will appear after the input.                               |
-| default_value | integer        | :material-check: | 0                 | The default value of the input.                                      |
-| minimum       | integer        | :material-close: | negative infinity | The minimum value of the input.                                      |
-| maximum       | integer        | :material-close: | positive infinity | The maximum value of the input.                                      |
-| key           | string or None | :material-close: | None              | What the value will be saved under in the [state](#elementsstate_1). |
-| wrap_text     | boolean        | :material-close: | True              | Wether or not the text should be wrapped.                            |
+| Parameter     | Version                                                                      | Type           | Required         | Default Value     | Description                                                          |
+| :------------ | ---------------------------------------------------------------------------- | :------------- | :--------------- | :---------------- | :------------------------------------------------------------------- |
+| label         | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string         | :material-check: | :material-close:  | This text will appear after the input.                               |
+| default_value | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer        | :material-check: | 0                 | The default value of the input.                                      |
+| minimum       | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer        | :material-close: | negative infinity | The minimum value of the input.                                      |
+| maximum       | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer        | :material-close: | positive infinity | The maximum value of the input.                                      |
+| key           | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string or None | :material-close: | None              | What the value will be saved under in the [state](#elementsstate_1). |
+| wrap_text     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean        | :material-close: | True              | Wether or not the text should be wrapped.                            |
 
 ??? example
 
@@ -308,15 +308,15 @@ Add an input to the frame that only accepts integers.
 
 ### Elements.input_text(label, default_value, key, wrap_text, max_length)
 
-Add an input to the frame.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add an input to the frame.
 
-| Parameter     | Type           | Required         | Default Value    | Description                                                          |
-| :------------ | :------------- | :--------------- | :--------------- | :------------------------------------------------------------------- |
-| label         | string         | :material-check: | :material-close: | This text will appear after the input.                               |
-| default_value | string         | :material-check: | empty string     | The default value of the input.                                      |
-| key           | string or None | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
-| wrap_text     | boolean        | :material-close: | True             | Wether or not the text should be wrapped.                            |
-| max_length    | integer        | :material-close: | 255              | The maximum amount of characters that can be in the input.           |
+| Parameter     | Version                                                                      | Type           | Required         | Default Value    | Description                                                          |
+| :------------ | ---------------------------------------------------------------------------- | :------------- | :--------------- | :--------------- | :------------------------------------------------------------------- |
+| label         | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string         | :material-check: | :material-close: | This text will appear after the input.                               |
+| default_value | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string         | :material-check: | empty string     | The default value of the input.                                      |
+| key           | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string or None | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
+| wrap_text     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean        | :material-close: | True             | Wether or not the text should be wrapped.                            |
+| max_length    | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer        | :material-close: | 255              | The maximum amount of characters that can be in the input.           |
 
 ??? example
 
@@ -338,7 +338,7 @@ Add an input to the frame.
 
 ### Elements.state
 
-This element stores the values of some objects.
+[:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - This element stores the values of some objects.
 
 - You can use the `state` for getting the value of objects before their definition.
 
