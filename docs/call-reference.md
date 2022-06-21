@@ -279,6 +279,39 @@ Returns the color selected as an RGB or RGBA tuple.
     ```
     ![Image Example](images/color-picker-example.jpg)
 
+### Elements.combo(label, default_value, choices, key, wrap_text)
+
+[:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) - Add a combo box to the frame.
+
+| Parameter     | Latest Change                                                                | Type            | Required         | Default Value    | Description                                                          |
+| :------------ | ---------------------------------------------------------------------------- | --------------- | ---------------- | ---------------- | -------------------------------------------------------------------- |
+| label         | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | string          | :material-check: | :material-close: | This text will appear after the combo.                               |
+| default_value | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | index (integer) | :material-check: | :material-close: | The default value of the combo. Should be an index of the choices.   |
+| choices       | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | list of strings | :material-check: | :material-close: | The choices that should be displayed.                                |
+| key           | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | string or None  | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
+| wrap_text     | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | boolean         | :material-close: | True             | Wether or not the text should be wrapped.                            |
+
+Returns the index of the selected choice.
+
+??? example
+
+    Let's add a combo box to the frame.
+
+    ```py linenums="1" hl_lines="7 8"
+    import pygui
+
+    window = pygui.Window("Hello World", width=1600, height=1200)
+
+    @window.frame("Hello World", width=1400, height=900)
+    def hello_world(elements: pygui.Elements):
+        choices = ["Option 1", "Option 2", "Option 3"]
+        selected = elements.combo("Select an option", 0, choices)
+        elements.text(f"You selected: {choices[selected]}")
+
+    window.start()
+    ```
+    ![Example Image](images/combo-example.jpg)
+
 ### Elements.input_int(label, default_value, minimum, maximum, key, wrap_text)
 
 [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add an input to the frame that only accepts integers.

@@ -75,6 +75,7 @@ class Menu(NamedTuple):
     title: str
     keys: Optional[List[KEY]]
 
+
 Theme = Type[Literal["light", "dark", "auto"]]
 
 
@@ -92,7 +93,12 @@ class Window:
     theme: Theme
 
     def __init__(
-        self, title: str, width: int = 800, height: int = 600, font: str = None, theme: Theme = "auto"
+        self,
+        title: str,
+        width: int = 800,
+        height: int = 600,
+        font: str = None,
+        theme: Theme = "auto",
     ):
         self.title = title
         self.width = width

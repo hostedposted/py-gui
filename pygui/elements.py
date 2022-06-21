@@ -158,7 +158,7 @@ class Elements:
         text: str,
         text_color: Optional[Union[tuple, int]] = None,
         wrap_text: bool = True,
-        key: Optional[str] = None
+        key: Optional[str] = None,
     ):
         """
         Create a button element.
@@ -223,6 +223,7 @@ class Elements:
         Callable
             A decorator for handling element's that only get rendered after a button click.
         """
+
         def handler(func):
             if imgui.get_time() - self.state.get(key, -math.inf) < time_limit:
                 func()
@@ -389,10 +390,52 @@ class Elements:
         if wrap_text:
             imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
         changed, value = imgui.input_text(
-            " " + label, self.state.setdefault(key or label, default_value), max_length + 1
+            " " + label,
+            self.state.setdefault(key or label, default_value),
+            max_length + 1,
         )  # Adding a space to the label make's it look better
         if wrap_text:
             imgui.pop_text_wrap_pos()
         if changed:
             self.state[key or label] = value
+        return value
+
+    def combo(
+        self,
+        label: str,
+        default_value: int,
+        choices: List[str],
+        key: Optional[str] = None,
+        wrap_text: bool = True,
+    ) -> int:
+        """
+        Create a combo element and add it to the frame.
+
+        Parameters
+        ----------
+        label : str
+            The text to be displayed after the combo.
+        default_value : int
+            The default value of the combo. This should be the index of the choice in the choices list.
+        choices : List[str]
+            The list of choices to be displayed in the combo.
+        key : Optional[str], optional
+            A key for the combo. This can be used for accessing the state of the element before it is added to the frame, by default None
+        wrap_text : bool, optional
+            Wether or not the text should be wrapped to fit, by default True
+
+        Returns
+        -------
+        int
+            The index of the selected value.
+        """
+        if wrap_text:
+            imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
+        changed, value = imgui.combo(
+            " " + label, self.state.setdefault(key or label, default_value), choices
+        )  # Adding a space to the label make's it look better
+        if changed:
+            self.state[key or label] = value
+        if wrap_text:
+            imgui.pop_text_wrap_pos()
         return value
