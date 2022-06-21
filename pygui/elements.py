@@ -4,7 +4,7 @@ Elements for the gui to display.
 import collections.abc
 import math
 import warnings
-from typing import Optional, Union
+from typing import List, Optional, Union
 
 import imgui
 
@@ -251,7 +251,7 @@ class Elements:
         """
         changed, value = imgui.checkbox(
             " " + label,
-            self.state.get(
+            self.state.setdefault(
                 key or label, default_value
             ),  # Adding a space to the label make's it look better
         )
@@ -303,7 +303,7 @@ class Elements:
                     default_value = default_value + (old_default_value[3],)
         changed, value = func(
             " " + label,  # Adding a space to the label make's it look better
-            *self.state.get(key or label, default_value),
+            *self.state.setdefault(key or label, default_value),
         )
         if changed:
             self.state[key or label] = value
@@ -348,7 +348,7 @@ class Elements:
         if wrap_text:
             imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
         changed, value = imgui.input_int(
-            " " + label, self.state.get(key or label, default_value)
+            " " + label, self.state.setdefault(key or label, default_value)
         )  # Adding a space to the label make's it look better
         if wrap_text:
             imgui.pop_text_wrap_pos()
@@ -389,7 +389,7 @@ class Elements:
         if wrap_text:
             imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
         changed, value = imgui.input_text(
-            " " + label, self.state.get(key or label, default_value), max_length + 1
+            " " + label, self.state.setdefault(key or label, default_value), max_length + 1
         )  # Adding a space to the label make's it look better
         if wrap_text:
             imgui.pop_text_wrap_pos()

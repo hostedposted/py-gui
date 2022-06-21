@@ -372,9 +372,7 @@ def hello_world(elements: pygui.Elements):
     value = elements.input_int("What is your favorite number?", 7, key="favorite")
     @elements.button("Add 2")
     def add_2():
-        elements.state["favorite"] = value + 2 # (1)!
+        elements.state["favorite"] += 2
 
 window.start()
 ```
-
-1. As of now, the value will only be set in the state when it is changed.
