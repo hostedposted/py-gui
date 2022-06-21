@@ -118,11 +118,15 @@ Usable key names are:
 | text_color | [:octicons-tag-24: 1.2.0](https://github.com/hostedposted/py-gui/tree/1.2.0) | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-close: | None (auto)      | The color of the text.                     |
 | center     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | False            | Wether or not the text should be centered. |
 | wrap_text  | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | True             | Wether or not the text should be wrapped.  |
+| font_size  | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | float or integer                                                 | :material-close: | 48               | The font size of the text.                 |
 
 !!! warning
 
     **Center and wrap cannot be used together (yet).** If both are enabled the text will not be centered.
 
+!!! warning
+
+    Font size uses the ``imgui.set_window_font_scale`` function to scale. This means that with big font sizes, the text will be a bit blurry.
 
 ??? example
 
@@ -275,6 +279,39 @@ Returns the color selected as an RGB or RGBA tuple.
     ```
     ![Image Example](images/color-picker-example.jpg)
 
+### Elements.combo(label, default_value, choices, key, wrap_text)
+
+[:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) - Add a combo box to the frame.
+
+| Parameter     | Latest Change                                                                | Type            | Required         | Default Value    | Description                                                          |
+| :------------ | ---------------------------------------------------------------------------- | --------------- | ---------------- | ---------------- | -------------------------------------------------------------------- |
+| label         | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | string          | :material-check: | :material-close: | This text will appear after the combo.                               |
+| default_value | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | index (integer) | :material-check: | :material-close: | The default value of the combo. Should be an index of the choices.   |
+| choices       | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | list of strings | :material-check: | :material-close: | The choices that should be displayed.                                |
+| key           | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | string or None  | :material-close: | None             | What the value will be saved under in the [state](#elementsstate_1). |
+| wrap_text     | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | boolean         | :material-close: | True             | Wether or not the text should be wrapped.                            |
+
+Returns the index of the selected choice.
+
+??? example
+
+    Let's add a combo box to the frame.
+
+    ```py linenums="1" hl_lines="7 8"
+    import pygui
+
+    window = pygui.Window("Hello World", width=1600, height=1200)
+
+    @window.frame("Hello World", width=1400, height=900)
+    def hello_world(elements: pygui.Elements):
+        choices = ["Option 1", "Option 2", "Option 3"]
+        selected = elements.combo("Select an option", 0, choices)
+        elements.text(f"You selected: {choices[selected]}")
+
+    window.start()
+    ```
+    ![Example Image](images/combo-example.jpg)
+
 ### Elements.input_int(label, default_value, minimum, maximum, key, wrap_text)
 
 [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add an input to the frame that only accepts integers.
@@ -368,9 +405,7 @@ def hello_world(elements: pygui.Elements):
     value = elements.input_int("What is your favorite number?", 7, key="favorite")
     @elements.button("Add 2")
     def add_2():
-        elements.state["favorite"] = value + 2 # (1)!
+        elements.state["favorite"] += 2
 
 window.start()
 ```
-
-1. As of now, the value will only be set in the state when it is changed.
