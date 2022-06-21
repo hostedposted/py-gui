@@ -53,6 +53,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "darkdetect"
+version = "0.6.0"
+description = "Detect OS Dark Mode from Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "dill"
 version = "0.3.5.1"
 description = "serialize all of python"
@@ -220,7 +228,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "36cd1c444f8f095b6fbc0037d59d74ea260bc28289f12869ffe5333ac094bbef"
+content-hash = "3f2f3a2d3418af6c20e33d80d5af9aa80c750b840c0dab293e8f90471ad2b9ed"
 
 [metadata.files]
 astroid = [
@@ -259,6 +267,10 @@ click = [
 colorama = [
     {file = "colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
     {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
+]
+darkdetect = [
+    {file = "darkdetect-0.6.0-py3-none-any.whl", hash = "sha256:9984327f5f0deeb4f02de01a18976825bc079befe7496b60c8d1fb0a06904d8e"},
+    {file = "darkdetect-0.6.0.tar.gz", hash = "sha256:7993275b537b4579ba2eee7673b0b95783f99c7ddb82a9f90dc077a379b427f1"},
 ]
 dill = [
     {file = "dill-0.3.5.1-py2.py3-none-any.whl", hash = "sha256:33501d03270bbe410c72639b350e941882a8b0fd55357580fbc873fba0c59302"},

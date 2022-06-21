@@ -2,8 +2,9 @@
 File for handling the window.
 """
 import os
-from typing import Callable, Dict, List, Literal, NamedTuple, Optional
+from typing import Callable, Dict, List, Literal, NamedTuple, Optional, Type
 
+import darkdetect
 import glfw
 import imgui
 import OpenGL.GL as gl
@@ -74,6 +75,8 @@ class Menu(NamedTuple):
     title: str
     keys: Optional[List[KEY]]
 
+Theme = Type[Literal["light", "dark", "auto"]]
+
 
 class Window:
     """
@@ -86,9 +89,10 @@ class Window:
     frames: List[Frame] = []
     menus: Dict[str, List[Menu]] = {}
     state: State = State()
+    theme: Theme
 
     def __init__(
-        self, title: str, width: int = 800, height: int = 600, font: str = None
+        self, title: str, width: int = 800, height: int = 600, font: str = None, theme: Theme = "auto"
     ):
         self.title = title
         self.width = width
@@ -101,6 +105,7 @@ class Window:
         self.state = State()
         self.frames = []
         self.menus = {}
+        self.theme = theme
 
     def start(self):
         """
@@ -129,6 +134,11 @@ class Window:
             raise Exception("Could not initialize Window")
 
         impl = GlfwRenderer(window)
+
+        if (darkdetect.isLight() and self.theme == "auto") or self.theme == "light":
+            imgui.style_colors_light()
+        elif (darkdetect.isDark() and self.theme == "auto") or self.theme == "dark":
+            imgui.style_colors_dark()
 
         io = imgui.get_io()
         font = io.fonts.add_font_from_file_ttf(self.font, 48)

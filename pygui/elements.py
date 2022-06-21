@@ -98,7 +98,7 @@ class Elements:
     def text(
         self,
         text: str,
-        text_color: Union[tuple, int] = (255, 255, 255, 1),
+        text_color: Optional[Union[tuple, int]] = None,
         center: bool = False,
         wrap_text: bool = True,
     ) -> None:
@@ -149,7 +149,7 @@ class Elements:
     def button(
         self,
         text: str,
-        text_color: Union[tuple, int] = (255, 255, 255, 1),
+        text_color: Optional[Union[tuple, int]] = None,
         wrap_text: bool = True,
         key: Optional[str] = None
     ):

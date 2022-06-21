@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-gui-tool"
-version = "1.1.0"
+version = "1.2.0"
 description = "PyGui is an easy to use gui."
 authors = ["hostedposted <hostedpostedsite@gmail.com>"]
 license = "MIT"
@@ -14,6 +14,7 @@ python = "^3.9"
 glfw = "^2.5.3"
 PyOpenGL = "^3.1.6"
 imgui = {extras = ["glfw"], version = "^1.4.1"}
+darkdetect = "^0.6.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.14.2"
