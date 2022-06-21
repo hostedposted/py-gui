@@ -17,7 +17,7 @@ jobs:
       - run: pip install mkdocs git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git mike
       - run: git config --global user.name "hostedposted"
       - run: git config --global user.email "hostedpostedsite@gmail.com"
-      - run: mike deploy --update-aliases 1.0.x latest
+      - run: mike deploy --update-aliases 1.1.x latest
       - run: mike set-default --push --force latest
 
 env:
