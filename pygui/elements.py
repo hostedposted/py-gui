@@ -101,6 +101,7 @@ class Elements:
         text_color: Optional[Union[tuple, int]] = None,
         center: bool = False,
         wrap_text: bool = True,
+        font_size: Union[int, float] = 48,
     ) -> None:
         """
         Add's a text element to the GUI.
@@ -115,6 +116,8 @@ class Elements:
             Wether or not the text should be centered, by default False
         wrap_text : bool, optional
             Wether or not the text should be wrapped, by default True
+        font_size : Union[int, float], optional
+            The font size of the text, by default 48
         """
         if center and wrap_text:
             warnings.warn(
@@ -140,7 +143,11 @@ class Elements:
             imgui.set_cursor_pos_x((window_width - text_width) / 2)
         if wrap_text:
             imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
+        if font_size != 48:
+            imgui.set_window_font_scale(font_size / 48)
         imgui.text(text)
+        if font_size != 48:
+            imgui.set_window_font_scale(1.0)
         if isinstance(text_color, tuple):
             imgui.pop_style_color()
         if wrap_text:

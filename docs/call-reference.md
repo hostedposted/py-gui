@@ -118,11 +118,15 @@ Usable key names are:
 | text_color | [:octicons-tag-24: 1.2.0](https://github.com/hostedposted/py-gui/tree/1.2.0) | HEX (int like 0xFF0000), RGB or RGBA (tuple like (255, 0, 0, 1)) | :material-close: | None (auto)      | The color of the text.                     |
 | center     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | False            | Wether or not the text should be centered. |
 | wrap_text  | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | boolean                                                          | :material-close: | True             | Wether or not the text should be wrapped.  |
+| font_size  | [:octicons-tag-24: 1.3.0](https://github.com/hostedposted/py-gui/tree/1.3.0) | float or integer                                                 | :material-close: | 48               | The font size of the text.                 |
 
 !!! warning
 
     **Center and wrap cannot be used together (yet).** If both are enabled the text will not be centered.
 
+!!! warning
+
+    Font size uses the ``imgui.set_window_font_scale`` function to scale. This means that with big font sizes, the text will be a bit blurry.
 
 ??? example
 
