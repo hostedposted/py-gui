@@ -151,6 +151,7 @@ class Elements:
         text: str,
         text_color: Union[tuple, int] = (255, 255, 255, 1),
         wrap_text: bool = True,
+        key: Optional[str] = None
     ):
         """
         Create a button element.
@@ -163,6 +164,9 @@ class Elements:
             The color of the text, either RGB or HEX, by default (255, 255, 255, 1)
         wrap_text : bool, optional
             Wether or not the text should be wrapped to fit, by default True
+        key : str, optional
+            A key for the color picker. This can be used for accessing the state of the element before it is added to the frame, by default None
+
 
         Returns
         -------
@@ -191,9 +195,32 @@ class Elements:
 
         def button_handler(func):
             if clicked:
+                self.state[key or text] = imgui.get_time()
                 func()
 
         return button_handler
+
+    def button_event(self, key: str, time_limit: int = 10):
+        """
+        After a button is clicked call the passed function every `time_limit` seconds.
+
+        Parameters
+        ----------
+        key : str
+            The key of the button.
+        time_limit : int, optional
+            How long this should be called after the button's click, by default 10
+
+        Returns
+        -------
+        Callable
+            A decorator for handling element's that only get rendered after a button click.
+        """
+        def handler(func):
+            if imgui.get_time() - self.state.get(key, -math.inf) < time_limit:
+                func()
+
+        return handler
 
     def checkbox(
         self, label: str, default_value: bool, key: Optional[str] = None

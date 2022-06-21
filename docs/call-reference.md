@@ -173,38 +173,20 @@ Returns a decorator. The function passed into the decorator will get called when
 
     When you click the button ``Hello World!`` will be printed!
 
-??? todo
+### Elements.button_event(key, time_limit)
 
-    Adding text to the frame in a button click event will not work.
-    It can be done manually by saving the time when the button is clicked and then adding the text to the frame for the next 10 seconds.
+Add an element to the frame for `time_limit` seconds after a button is clicked.
 
-    So something like this:
+| Parameter  | Type              | Required         | Default Value    | Description                                                                     |
+| :--------- | :---------------- | :--------------- | :--------------- | :------------------------------------------------------------------------------ |
+| key        | string            | :material-check: | :material-close: | The button's key.                                                               |
+| time_limit | seconds (integer) | :material-check: | 10               | The amount of time the elements should be rendered after the button is pressed. |
 
-    ```py linenums="1" hl_lines="6 12 13 15 16 17"
-    import pygui
-    import imgui
+Returns a decorator. The function passed into the decorator will get called constantly for `time_limit` seconds.
 
-    window = pygui.Window("Hello World")
+??? example
 
-    timer = None
-
-    @window.frame("Hello World", width=700, height=450)
-    def hello_world(elements: pygui.Elements):
-        @elements.button("Hello World!")
-        def hello_world_button():
-            global timer
-            timer = imgui.get_time() # (1)!
-
-        if timer is not None:
-            if imgui.get_time() - timer < 10:
-                elements.text("Hello World!")
-
-    window.start()
-    ```
-
-    1. ``#!python imgui.get_time()`` will return the time in seconds since the program started.
-
-    Once this is finished it should work like this:
+    Let's redo the button example with the `Hello World` text being rendered for 10 seconds after the button is clicked.
 
     ```py linenums="1" hl_lines="11 12 13"
     import pygui
@@ -223,6 +205,13 @@ Returns a decorator. The function passed into the decorator will get called when
 
     window.start()
     ```
+
+    When you click the button ``Hello World!`` will be added to the frame for the next 10 seconds!
+
+
+!!! warning
+
+    Operations like opening files should **never** be done in the [`button_event`](#elementsbutton_eventkey-time_limit) function. This should be done in the [`button`](#elementsbuttontext-text_color-wrap_text) function.
 
 ### Elements.checkbox(label, default_value, key)
 
