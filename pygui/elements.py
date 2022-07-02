@@ -194,7 +194,11 @@ class Elements:
                 text_color[2] / 255,
                 text_color[3],
             )
+        if key:
+            imgui.push_id(key)
         clicked = imgui.button(text)
+        if key:
+            imgui.pop_id()
         if wrap_text:
             imgui.pop_text_wrap_pos()
         if isinstance(text_color, tuple):
@@ -252,12 +256,16 @@ class Elements:
         bool
             If the checkbox is checked.
         """
+        if key:
+            imgui.push_id(key)
         changed, value = imgui.checkbox(
             " " + label,
             self.state.setdefault(
                 key or label, default_value
             ),  # Adding a space to the label make's it look better
         )
+        if key:
+            imgui.pop_id()
         if changed:
             self.state[label] = value
         return value
@@ -304,10 +312,14 @@ class Elements:
                     default_value = default_value + (1,)
                 else:
                     default_value = default_value + (old_default_value[3],)
+        if key:
+            imgui.push_id(key)
         changed, value = func(
             " " + label,  # Adding a space to the label make's it look better
             *self.state.setdefault(key or label, default_value),
         )
+        if key:
+            imgui.pop_id()
         if changed:
             self.state[key or label] = value
         rgb = (round(value[0] * 255), round(value[1] * 255), round(value[2] * 255))
@@ -350,9 +362,13 @@ class Elements:
         """
         if wrap_text:
             imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
+        if key:
+            imgui.push_id(key)
         changed, value = imgui.input_int(
             " " + label, self.state.setdefault(key or label, default_value)
         )  # Adding a space to the label make's it look better
+        if key:
+            imgui.pop_id()
         if wrap_text:
             imgui.pop_text_wrap_pos()
         if changed:
@@ -391,11 +407,15 @@ class Elements:
         """
         if wrap_text:
             imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
+        if key:
+            imgui.push_id(key)
         changed, value = imgui.input_text(
             " " + label,
             self.state.setdefault(key or label, default_value),
             max_length + 1,
         )  # Adding a space to the label make's it look better
+        if key:
+            imgui.pop_id()
         if wrap_text:
             imgui.pop_text_wrap_pos()
         if changed:
@@ -433,9 +453,13 @@ class Elements:
         """
         if wrap_text:
             imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
+        if key:
+            imgui.push_id(key)
         changed, value = imgui.combo(
             " " + label, self.state.setdefault(key or label, default_value), choices
         )  # Adding a space to the label make's it look better
+        if key:
+            imgui.pop_id()
         if changed:
             self.state[key or label] = value
         if wrap_text:
