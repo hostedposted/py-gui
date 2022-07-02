@@ -376,6 +376,54 @@ class Elements:
             self.state[key or label] = value
         return value
 
+    def input_float(
+        self,
+        label: str,
+        default_value: float = 0,
+        minimum: float = -math.inf,
+        maximum: float = math.inf,
+        key: Optional[str] = None,
+        wrap_text: bool = True,
+    ):
+        """
+        Create a float input.
+
+        Parameters
+        ----------
+        label : str
+            Text that will be displayed after the input.
+        default_value : float, optional
+            The default value, by default 0
+        minimum : float, optional
+            The minimum value that can be entered, by default -math.inf
+        maximum : float, optional
+            The maximum value that can be entered, by default math.inf
+        key : Optional[str], optional
+            A key for the input. This can be used for accessing the state of the element before it is added to the frame, by default None
+        wrap_text : bool, optional
+            Wether or not the text should be wrapped to fit, by default True
+
+        Returns
+        -------
+        float
+            The value entered.
+        """
+        if wrap_text:
+            imgui.push_text_wrap_pos(imgui.get_window_width() * WRAPPING_PERCENTAGE)
+        if key:
+            imgui.push_id(key)
+        changed, value = imgui.input_float(
+            " " + label, self.state.setdefault(key or label, default_value)
+        )  # Adding a space to the label make's it look better
+        if key:
+            imgui.pop_id()
+        if wrap_text:
+            imgui.pop_text_wrap_pos()
+        if changed:
+            value = clamp(value, minimum, maximum)
+            self.state[key or label] = value
+        return value
+
     def input_text(
         self,
         label: str,

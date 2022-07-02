@@ -42,12 +42,12 @@ On this page, you will find a list of all the functions and methods that are ava
 
 [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add a frame to the window.
 
-| Parameter | Latest Change                                                                | Type          | Required         | Default Value    | Description                      |
-| :-------- | ---------------------------------------------------------------------------- | :------------ | :--------------- | :--------------- | :------------------------------- |
-| title     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string        | :material-check: | :material-close: | This will be the frame's title.    |
-| width     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer       | :material-close: | Minimum Possible | This will be the frame's width.            |
-| height    | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer       | :material-close: | Minimum Possible | This will be the frame's height.           |
-| position  | [:octicons-tag-24: 1.5.0](https://github.com/hostedposted/py-gui/tree/1.5.0) | tuple of ints | :material-close: | 0, 0           | This will be the position of the frame. |
+| Parameter | Latest Change                                                                | Type          | Required         | Default Value    | Description                             |
+| :-------- | ---------------------------------------------------------------------------- | :------------ | :--------------- | :--------------- | :-------------------------------------- |
+| title     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string        | :material-check: | :material-close: | This will be the frame's title.         |
+| width     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer       | :material-close: | Minimum Possible | This will be the frame's width.         |
+| height    | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer       | :material-close: | Minimum Possible | This will be the frame's height.        |
+| position  | [:octicons-tag-24: 1.5.0](https://github.com/hostedposted/py-gui/tree/1.5.0) | tuple of ints | :material-close: | 0, 0             | This will be the position of the frame. |
 
 ??? example
 
@@ -356,6 +356,38 @@ Returns the index of the selected choice.
     window.start()
     ```
     ![Example Image](images/input-int-example.jpg)
+
+
+### Elements.input_float(label, default_value, minimum, maximum, key, wrap_text)
+
+[:octicons-tag-24: 1.6.0](https://github.com/hostedposted/py-gui/tree/1.6.0) - Add an input to the frame that only accepts floats.
+
+| Parameter     | Latest Change                                                                | Type           | Required         | Default Value     | Description                                                          |
+| :------------ | ---------------------------------------------------------------------------- | :------------- | :--------------- | :---------------- | :------------------------------------------------------------------- |
+| label         | [:octicons-tag-24: 1.6.0](https://github.com/hostedposted/py-gui/tree/1.6.0) | string         | :material-check: | :material-close:  | This text will appear after the input.                               |
+| default_value | [:octicons-tag-24: 1.6.0](https://github.com/hostedposted/py-gui/tree/1.6.0) | float          | :material-check: | 0                 | The default value of the input.                                      |
+| minimum       | [:octicons-tag-24: 1.6.0](https://github.com/hostedposted/py-gui/tree/1.6.0) | float          | :material-close: | negative infinity | The minimum value of the input.                                      |
+| maximum       | [:octicons-tag-24: 1.6.0](https://github.com/hostedposted/py-gui/tree/1.6.0) | float          | :material-close: | positive infinity | The maximum value of the input.                                      |
+| key           | [:octicons-tag-24: 1.6.0](https://github.com/hostedposted/py-gui/tree/1.6.0) | string or None | :material-close: | None              | What the value will be saved under in the [state](#elementsstate_1). |
+| wrap_text     | [:octicons-tag-24: 1.6.0](https://github.com/hostedposted/py-gui/tree/1.6.0) | boolean        | :material-close: | True              | Wether or not the text should be wrapped.                            |
+
+??? example
+
+    Let's add an input to the frame.
+
+    ```py
+    import pygui
+
+    window = pygui.Window("Hello World")
+
+    @window.frame("Hello World", width=700, height=450)
+    def hello_world(elements: pygui.Elements):
+        value = elements.input_float("3.5 + 4", 7.5)
+        elements.text(f"You picked: {value}")
+
+    window.start()
+    ```
+    ![Example Image](images/input-float-example.jpg)
 
 
 ### Elements.input_text(label, default_value, key, wrap_text, max_length)
