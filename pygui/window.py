@@ -2,7 +2,7 @@
 File for handling the window.
 """
 import os
-from typing import Callable, Dict, List, Literal, NamedTuple, Optional, Type
+from typing import Callable, Dict, List, Literal, NamedTuple, Optional, Tuple, Type
 
 import darkdetect
 import glfw
@@ -64,6 +64,7 @@ class Frame(NamedTuple):
     title: str
     width: int
     height: int
+    position: Optional[Tuple[int, int]]
 
 
 class Menu(NamedTuple):
@@ -192,6 +193,10 @@ class Window:
                     imgui.set_next_window_size(
                         frame.width, frame.height, imgui.FIRST_USE_EVER
                     )
+                if len(frame.position or ()) == 2:
+                    imgui.set_next_window_position(
+                        frame.position[0], frame.position[1], imgui.FIRST_USE_EVER
+                    )
                 imgui.begin(frame.title)
                 frame.func(Elements(self.state))
                 imgui.end()
@@ -204,7 +209,7 @@ class Window:
         impl.shutdown()
         glfw.terminate()
 
-    def frame(self, title: str, width: int = None, height: int = None):
+    def frame(self, title: str, width: int = None, height: int = None, position: Optional[Tuple[int, int]] = None):
         """
         Create a decorator to create a frame.
 
@@ -223,7 +228,7 @@ class Window:
             The decorator.
         """
         return lambda func: self.frames.append(
-            Frame(func=func, title=title, width=width, height=height)
+            Frame(func=func, title=title, width=width, height=height, position=position)
         )
 
     def menu(self, category: str, title: str, keys: List[KEY] = None):

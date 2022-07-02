@@ -42,11 +42,12 @@ On this page, you will find a list of all the functions and methods that are ava
 
 [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) - Add a frame to the window.
 
-| Parameter | Latest Change                                                                | Type    | Required         | Default Value    | Description                      |
-| :-------- | ---------------------------------------------------------------------------- | :------ | :--------------- | :--------------- | :------------------------------- |
-| title     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string  | :material-check: | :material-close: | This will be the frame's title.  |
-| width     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer | :material-close: | Minimum Possible | This will be the frame's width.  |
-| height    | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer | :material-close: | Minimum Possible | This will be the frame's height. |
+| Parameter | Latest Change                                                                | Type          | Required         | Default Value    | Description                      |
+| :-------- | ---------------------------------------------------------------------------- | :------------ | :--------------- | :--------------- | :------------------------------- |
+| title     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | string        | :material-check: | :material-close: | This will be the frame's title.    |
+| width     | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer       | :material-close: | Minimum Possible | This will be the frame's width.            |
+| height    | [:octicons-tag-24: 1.0.2](https://github.com/hostedposted/py-gui/tree/1.0.2) | integer       | :material-close: | Minimum Possible | This will be the frame's height.           |
+| position  | [:octicons-tag-24: 1.5.0](https://github.com/hostedposted/py-gui/tree/1.5.0) | tuple of ints | :material-close: | 0, 0           | This will be the position of the frame. |
 
 ??? example
 
