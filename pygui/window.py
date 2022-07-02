@@ -2,7 +2,6 @@
 File for handling the window.
 """
 import os
-from turtle import position
 from typing import Callable, Dict, List, Literal, NamedTuple, Optional, Tuple, Type
 
 import darkdetect
@@ -196,7 +195,7 @@ class Window:
                     )
                 if len(frame.position or ()) == 2:
                     imgui.set_next_window_position(
-                        position[0], position[1], imgui.FIRST_USE_EVER
+                        frame.position[0], frame.position[1], imgui.FIRST_USE_EVER
                     )
                 imgui.begin(frame.title)
                 frame.func(Elements(self.state))
